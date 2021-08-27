@@ -7,7 +7,7 @@ const nid = require("nid");
 
 //routes
 // notes get
-router.get("/notes", (req, res) => res.json(notes));
+router.get("/notes", (req, res) => res.json(noteSave));
 
 // post notes
 router.post("/notes", (req, res) => {
