@@ -17,13 +17,20 @@ router.post("/notes", (req, res) => {
   noteSave.push(notes);
   console.log(notes, "Your note was added!");
   res.json(true);
-  console.log(noteSave);
+  // console.log(noteSave);
 });
 //delete notes
 router.delete("/notes/:id", (req, res) => {
-  const deleteData = req.params.id;
+  noteDb
+    .deleteNote(req.params.id)
+    .then(() => res.json({ ok: true }))
+    .catch((err) => res.status(500).json(err));
+  // const deleteData = req.params.id;
 
-  let i = db[i].id === deleteData ? (db.splice[i], 1) : res.end();
+  // let i =
+  //   noteSave[i].id === deleteData
+  //     ? (noteSave.splice[i], 1)
+  //     : res.end();
 });
 
 //create class for databas notes/fs read & write code
