@@ -16,6 +16,8 @@ router.post("/notes", (req, res) => {
   //json for notes pushed to db
   noteSave.push(notes);
   console.log("Your note was added!");
+  let dbWrite = new noteDb();
+  dbWrite.writeNotes(notes);
   res.json(notes);
 });
 //delete notes
@@ -37,7 +39,7 @@ class noteDb {
     fs.readFileSync("../db/db.json", "utf8");
   }
   writeNotes(notes) {
-    fs.writeFileSync("../db/db.json", JSON.stringify(notes));
+    fs.writeFileSync("db/db.json", JSON.stringify(notes));
   }
   getNotes() {
     return this.readNotes().then((notes) => {});
