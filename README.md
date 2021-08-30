@@ -45,9 +45,7 @@ npm i
 
 ## Usage
 
-\*npm run test
-
-\*node index.js
+\*node sever.js
 
 ## Links
 
