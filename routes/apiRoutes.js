@@ -21,16 +21,15 @@ router.post("/notes", (req, res) => {
 });
 //delete notes
 router.delete("/notes/:id", (req, res) => {
-  noteDb
-    .deleteNote(req.params.id)
-    .then(() => res.json({ ok: true }))
-    .catch((err) => res.status(500).json(err));
-  // const deleteData = req.params.id;
+  const deleteData = req.params.id;
 
-  // let i =
-  //   noteSave[i].id === deleteData
-  //     ? (noteSave.splice[i], 1)
-  //     : res.end();
+  for (let i = 0; i < noteSave.length; i++) {
+    const currentNote = noteSave[i].id;
+    if (currentNote === deleteData) {
+      noteSave.splice(i, 1);
+    }
+    res.json(noteSave);
+  }
 });
 
 //create class for databas notes/fs read & write code
