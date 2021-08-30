@@ -31,7 +31,7 @@ router.delete("/notes/:id", (req, res) => {
   res.json(noteSave);
 });
 
-//create class for databas notes/fs read & write code
+//create class for database notes/fs read & write code
 class noteDb {
   readNotes() {
     fs.readFileSync("../db/db.json", "utf8");
