@@ -15,9 +15,8 @@ router.post("/notes", (req, res) => {
   notes.id = nid();
   //json for notes pushed to db
   noteSave.push(notes);
-  console.log(notes, "Your note was added!");
-  res.json(true);
-  // console.log(noteSave);
+  console.log("Your note was added!");
+  res.json(notes);
 });
 //delete notes
 router.delete("/notes/:id", (req, res) => {
@@ -28,8 +27,8 @@ router.delete("/notes/:id", (req, res) => {
     if (currentNote === deleteData) {
       noteSave.splice(i, 1);
     }
-    res.json(noteSave);
   }
+  res.json(noteSave);
 });
 
 //create class for databas notes/fs read & write code
